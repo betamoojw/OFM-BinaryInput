@@ -2,7 +2,7 @@
 #include "OpenKNX/Module.h"
 #include "hardware.h"
 
-class BinaryInputModule : public OpenKNX::Module
+class BasicBinaryInputModule : public OpenKNX::Module
 {
 
   public:
@@ -22,4 +22,4 @@ class BinaryInputModule : public OpenKNX::Module
     BinaryInputChannel* _channels[BI_ChannelCount];
 };
 
-extern BinaryInputModule openknxBinaryInputModule;
+extern BasicBinaryInputModule openknxBasicBinaryInputModule;

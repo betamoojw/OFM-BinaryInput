@@ -17,8 +17,12 @@ class BasicBinaryInputModule : public OpenKNX::Module
 
     uint32_t _lastHardwareQuery = 0;
 
+#ifdef OPENKNX_BASIC_BINARY_INPUT_GPIO_PINS
+    uint8_t _gpioPinArray[BI_ChannelCount] = {OPENKNX_BASIC_BINARY_INPUT_GPIO_PINS};
+    uint8_t* _gpioPins = _gpioPinArray;
+#else
     uint8_t* _gpioPins = nullptr;
-
+#endif
     BinaryInputChannel* _channels[BI_ChannelCount];
 };
 

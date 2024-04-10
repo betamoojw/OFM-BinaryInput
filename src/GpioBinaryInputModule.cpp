@@ -1,16 +1,18 @@
-#include "BinaryInputModule.h"
+#include "GpioBinaryInputModule.h"
 
-const std::string BinaryInputModule::name()
+#ifdef OPENKNX_BI_PINS
+
+const std::string GpioBinaryInputModule::name()
 {
     return "BasicBinaryInput";
 }
 
-const std::string BinaryInputModule::version()
+const std::string GpioBinaryInputModule::version()
 {
     return MODULE_BinaryInput_Version;
 }
 
-void BinaryInputModule::setup()
+void GpioBinaryInputModule::setup()
 {
     if(_gpioPins == nullptr)
     {
@@ -36,7 +38,7 @@ void BinaryInputModule::setup()
     }
 }
 
-void BinaryInputModule::loop()
+void GpioBinaryInputModule::loop()
 {
     if(_gpioPins == nullptr)
         return;
@@ -47,7 +49,7 @@ void BinaryInputModule::loop()
         _channels[i]->loop();
 }
 
-void BinaryInputModule::processHardwareInputs()
+void GpioBinaryInputModule::processHardwareInputs()
 {
     if(_gpioPins == nullptr)
         return;
@@ -72,4 +74,6 @@ void BinaryInputModule::processHardwareInputs()
     #endif
 }
 
-BinaryInputModule openknxBinaryInputModule;
+GpioBinaryInputModule openknxGpioBinaryInputModule;
+
+#endif

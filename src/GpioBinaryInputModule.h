@@ -2,11 +2,13 @@
 #include "OpenKNX/Module.h"
 #include "hardware.h"
 
+#ifdef OPENKNX_BI_PINS
+
 #ifndef OPENKNX_BI_ONLEVEL
 #define OPENKNX_BI_ONLEVEL LOW
 #endif
 
-class BinaryInputModule : public OpenKNX::Module
+class GpioBinaryInputModule : public OpenKNX::Module
 {
 
   public:
@@ -20,13 +22,11 @@ class BinaryInputModule : public OpenKNX::Module
 
     uint32_t _lastHardwareQuery = 0;
 
-#ifdef OPENKNX_BI_PINS
-    uint8_t _gpioPinArray[BI_ChannelCount] = {OPENKNX_BI_PINS};
-    uint8_t* _gpioPins = _gpioPinArray;
-#else
-    uint8_t* _gpioPins = nullptr;
-#endif
+    const uint8_t _gpioPins[BI_ChannelCount] = {OPENKNX_BI_PINS};
+
     BinaryInputChannel* _channels[BI_ChannelCount];
 };
 
-extern BinaryInputModule openknxBinaryInputModule;
+extern GpioBinaryInputModule openknxGpioBinaryInputModule;
+
+#endif

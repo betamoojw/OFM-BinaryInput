@@ -1,6 +1,6 @@
 #include "GpioBinaryInputModule.h"
 
-#ifdef OPENKNX_BI_PINS
+#ifdef OPENKNX_BI_GPIO_PINS
 
 const std::string GpioBinaryInputModule::name()
 {

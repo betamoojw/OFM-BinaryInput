@@ -36,7 +36,7 @@
             </ComObjectRefs>
           </Static>
           <Dynamic>
-            <Channel Name="MainChannel" Text="Binäreingänge" Number="%TT%" Id="%AID%_CH-%TT%" Icon="arrow-right-circle-outline">
+            <Channel Id="%AID%_CH-%PREFIX%" Number="%PREFIX%" Name="Main" Text="Binäreingänge" HelpContext="Empty" Icon="arrow-right-circle-outline">
               <op:include href="BinaryInputChannel.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/*" type="template" prefix="BI" IsInner="true" />
             </Channel>
           </Dynamic>

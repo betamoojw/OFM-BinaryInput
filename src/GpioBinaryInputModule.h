@@ -3,6 +3,7 @@
 #include "hardware.h"
 
 #ifdef OPENKNX_BI_GPIO_PINS
+#ifdef BI_ChannelCount
 
 #ifndef OPENKNX_BI_ONLEVEL
 #define OPENKNX_BI_ONLEVEL LOW
@@ -29,4 +30,5 @@ class GpioBinaryInputModule : public OpenKNX::Module
 
 extern GpioBinaryInputModule openknxGpioBinaryInputModule;
 
+#endif
 #endif

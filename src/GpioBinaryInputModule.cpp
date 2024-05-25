@@ -1,6 +1,7 @@
 #include "GpioBinaryInputModule.h"
 
 #ifdef OPENKNX_BI_GPIO_PINS
+#ifdef BI_ChannelCount
 
 const std::string GpioBinaryInputModule::name()
 {
@@ -76,4 +77,5 @@ void GpioBinaryInputModule::processHardwareInputs()
 
 GpioBinaryInputModule openknxGpioBinaryInputModule;
 
+#endif
 #endif

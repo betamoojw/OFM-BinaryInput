@@ -1,6 +1,11 @@
 # **Binäreingänge**
 
 <!-- DOC HelpContext="Dokumentation" -->
+
+<!-- DOCCONTENT
+Eine vollständige Applikationsbeschreibung ist unter folgendem Link verfügbar: https://github.com/openknx/OFM-BinaryInput/blob/v1/doc/Applikationsbeschreibung-Binaereingang.md
+DOCCONTENT -->
+
 Das Modul für Binäreingänge erlaubt eine einfache Definition von Schaltzuständen über einen Binäreingang. Derzeit werden von der zugehörigen Applikation Schalter oder Fensterkontakte unterstützt, keine Impulseingänge, deren Werte gezählt werden sollen.
 <!-- DOCEND -->
 
@@ -18,9 +23,10 @@ Die ETS ist auch schneller in der Anzeige, wenn sie weniger (leere) Kanäle dars
 
 Da alle Eingänge gleich aussehen, wird hier nur ein Eingang Beschrieben. In der Applikation wird das *x* durch einen Buchstaben ersetzt, der die Nummer des Binäreingangs repräsentiert.
 
+<!-- DOC Skip="3" -->
 Folgende Eingaben stehen für die Konfiguration zur Verfügung:
 
-<kbd>![Konfiguration](Screenshot%201.png)</kbd>
+<kbd>![Eingang](pics/Eingang.png)</kbd>
 
 In den folgenden Unterkapiteln werden diese Eingaben beschrieben.
 

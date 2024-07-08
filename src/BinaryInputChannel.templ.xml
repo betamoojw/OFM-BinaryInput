@@ -43,43 +43,47 @@
           <Dynamic>
             <ChannelIndependentBlock>
               <!-- START INCLUDE HERE -->
-              <ParameterBlock Id="%AID%_PB-nnn" Name="Channel%C%Page" Text="Eingang %Z%: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="import" HelpContext="Empty" ShowInComObjectTree="true">
-                <ParameterSeparator Id="%AID%_PS-nnn" Text="Konfiguration" UIHint="Headline" />
-                <!-- Name -->
-                <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="tag-outline" HelpContext="BI-ChannelName" />
-                <!-- Status -->
-                <ParameterRefRef RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" Icon="power-cycle" HelpContext="BI-ChannelActive" />
-                <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
-                  <when test=">0">
-                    <!-- Debounce -->
-                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%003_R-%TT%%CC%00301" Icon="wave" HelpContext="BI-ChannelDebounce" />
-                    <!-- Open -->
-                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%005_R-%TT%%CC%00501" Icon="electric-switch" HelpContext="BI-ChannelOpened" />
-                    <!-- Close -->
-                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%006_R-%TT%%CC%00601" Icon="electric-switch-closed" HelpContext="BI-ChannelClosed" />
-                    <!-- Periodic -->
-                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%004_R-%TT%%CC%00401" Icon="timer-outline" HelpContext="BI-ChannelDebounce" />
-                    <choose ParamRefId="%AID%_UP-%TT%%CC%004_R-%TT%%CC%00401">
+              <choose ParamRefId="%AID%_P-%TT%00001_R-%TT%0000101">
+                <when test="&gt;=%C%">
+                  <ParameterBlock Id="%AID%_PB-nnn" Name="Channel%C%Page" Text="Eingang %Z%: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="import" HelpContext="Empty" ShowInComObjectTree="true">
+                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Konfiguration" UIHint="Headline" />
+                    <!-- Name -->
+                    <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                    <!-- Status -->
+                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="%DOC%" />
+                    <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
                       <when test=">0">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="Channel%C%Periodic" Inline="true" Layout="Grid">
-                          <Rows>
-                            <Row Id="%AID%_PB-nnn_R-1" Name="Row1" />
-                          </Rows>
-                          <Columns>
-                            <Column Id="%AID%_PB-nnn_C-1" Name="Col1" Width="45%" />
-                            <Column Id="%AID%_PB-nnn_C-2" Name="Col2" Width="15%" />
-                            <Column Id="%AID%_PB-nnn_C-3" Name="Col3" Width="20%" />
-                          </Columns>
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%012_R-%TT%%CC%01201" Cell="1,2" />
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%011_R-%TT%%CC%01101" Cell="1,3" />
-                        </ParameterBlock>
+                        <!-- Debounce -->
+                        <ParameterRefRef RefId="%AID%_UP-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="%DOC%" />
+                        <!-- Open -->
+                        <ParameterRefRef RefId="%AID%_UP-%TT%%CC%005_R-%TT%%CC%00501" HelpContext="%DOC%" />
+                        <!-- Close -->
+                        <ParameterRefRef RefId="%AID%_UP-%TT%%CC%006_R-%TT%%CC%00601" HelpContext="%DOC%" />
+                        <!-- Periodic -->
+                        <ParameterRefRef RefId="%AID%_UP-%TT%%CC%004_R-%TT%%CC%00401" HelpContext="%DOC%" />
+                        <choose ParamRefId="%AID%_UP-%TT%%CC%004_R-%TT%%CC%00401">
+                          <when test=">0">
+                            <ParameterBlock Id="%AID%_PB-nnn" Name="Channel%C%Periodic" Inline="true" Layout="Grid" HelpContext="BI-Zyklisch-senden">
+                              <Rows>
+                                <Row Id="%AID%_PB-nnn_R-1" Name="Row1" />
+                              </Rows>
+                              <Columns>
+                                <Column Id="%AID%_PB-nnn_C-1" Name="Col1" Width="45%" />
+                                <Column Id="%AID%_PB-nnn_C-2" Name="Col2" Width="15%" />
+                                <Column Id="%AID%_PB-nnn_C-3" Name="Col3" Width="20%" />
+                              </Columns>
+                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%012_R-%TT%%CC%01201" Cell="1,2" HelpContext="BI-Zyklisch-senden" />
+                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%011_R-%TT%%CC%01101" Cell="1,3" HelpContext="BI-Zyklisch-senden" />
+                            </ParameterBlock>
+                          </when>
+                        </choose>
+
+                        <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" />
                       </when>
                     </choose>
-
-                    <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" />
-                  </when>
-                </choose>
-              </ParameterBlock>
+                  </ParameterBlock>
+                </when>
+              </choose>
             </ChannelIndependentBlock>
           </Dynamic>
         </ApplicationProgram>
